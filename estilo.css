@@ -1,0 +1,28 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+body{
+    font-family: 'Roboto';
+    background: linear-gradient(90deg, rgb(186, 0, 31), 0%, rgb(145, 0, 0), 50%);
+    /*background-color: rgb(242, 241, 211);*/
+}
+.body{
+    background-color: rgb(247, 247, 242);
+}
+.inner-row{
+    height:100vh;
+}
+.primaryBg{
+    background: rgb(172, 3, 3);
+    border-color: transparent;
+}
+.primaryColor{
+    color:rgb(186, 0, 31);
+}
+.form-box{
+    background: rgb(225, 225, 225);
+    box-shadow: 0 0 10px 0 rgb(211, 208, 208), 0 5px 5px rgb(206, 202, 202);
+    border-radius: 12px;
+
+}
+.registration-form{
+    display: none;
+}
