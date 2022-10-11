@@ -10,7 +10,7 @@
 	<script src="https://kit.fontawesome.com/73333f2213.js" crossorigin="anonymous"></script>
 </head>
 <body>
-	<div class="container align-items-center justify-content-center">
+	<div class="container">
         <div>
             <a href="pagina_inicial.html">
                 <img src="logo_vermelho.png" class="logo-vermelho">
