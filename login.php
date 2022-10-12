@@ -10,7 +10,7 @@
 	<script src="https://kit.fontawesome.com/73333f2213.js" crossorigin="anonymous"></script>
 </head>
 <body>
-	<div class="container container-login">
+	<div class="container">
         <div>
             <a href="pagina_inicial.html">
                 <img src="logo_vermelho.png" class="logo-vermelho">
@@ -36,7 +36,7 @@
                         </div>
                     </form>
                     <div class="mt-3">
-                        <span>Ainda não tem uma conta? </span><a href="cadastro.php" class="texto-negrito links link-danger">Registre-se</a>
+                        <span>Ainda não tem uma conta? </span><a href="cadastro.php" class="texto-negrito link-danger">Registre-se</a>
                     </div>
                 </div>
             </div>
