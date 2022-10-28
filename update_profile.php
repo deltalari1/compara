@@ -57,7 +57,7 @@ if(isset($_POST['update_profile'])){
    <title>Atualizando Perfil</title>
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
