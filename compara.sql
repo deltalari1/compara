@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16-Nov-2022 às 14:41
+-- Tempo de geração: 24-Nov-2022 às 15:03
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.1.2
 
@@ -24,16 +24,52 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `categorias`
+--
+
+CREATE TABLE `categorias` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `favoritos`
+--
+
+CREATE TABLE `favoritos` (
+  `id` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `id_postagem` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `lojas`
+--
+
+CREATE TABLE `lojas` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(45) NOT NULL,
+  `endereço` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `postagem`
 --
 
 CREATE TABLE `postagem` (
   `id` int(11) NOT NULL,
-  `titulo` varchar(45) NOT NULL,
   `descricao` varchar(255) NOT NULL,
   `imagem` varchar(255) NOT NULL,
   `preco` varchar(45) NOT NULL,
-  `favoritos` int(11) NOT NULL
+  `qtd_favoritos` int(11) NOT NULL,
+  `id_loja` int(11) NOT NULL,
+  `id_categoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -45,21 +81,39 @@ CREATE TABLE `postagem` (
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `nome` varchar(45) NOT NULL,
-  `sobrenome` varchar(45) NOT NULL,
   `email` varchar(256) NOT NULL,
-  `senha` varchar(64) NOT NULL
+  `senha` varchar(64) NOT NULL,
+  `imagem` varchar(125) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nome`, `sobrenome`, `email`, `senha`) VALUES
-(1, 'Arthur', 'Both', 'arthurboth2@gmail.com', '123456789');
+INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `imagem`) VALUES
+(1, 'Arthur', 'arthurboth2@gmail.com', '123456789', '');
 
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices para tabela `categorias`
+--
+ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `favoritos`
+--
+ALTER TABLE `favoritos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `lojas`
+--
+ALTER TABLE `lojas`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Índices para tabela `postagem`
@@ -76,6 +130,24 @@ ALTER TABLE `usuarios`
 --
 -- AUTO_INCREMENT de tabelas despejadas
 --
+
+--
+-- AUTO_INCREMENT de tabela `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `favoritos`
+--
+ALTER TABLE `favoritos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `lojas`
+--
+ALTER TABLE `lojas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `postagem`
