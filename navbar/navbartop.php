@@ -48,7 +48,7 @@
 							<li><a class="dropdown-item" href="/compara/perfil/perfil.php?usuario=1">Perfil</a></li>
 							<li><a class="dropdown-item" href="#">Favoritos</a></li>
 							<li><a class="dropdown-item" href="/compara/configuracao/configuracao.php?usuario=1">Configurações</a></li>
-							<li><a class="dropdown-item text-secondary" href="#">Sair</a></li>
+							<li><a class="dropdown-item text-secondary" href="/compara/perfil/sair.php">Sair</a></li>
 						</ul>
 					</li>
 				</ul>
