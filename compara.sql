@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 30, 2022 at 03:22 AM
--- Server version: 8.0.29
--- PHP Version: 8.1.4
+-- Host: 127.0.0.1
+-- Tempo de geração: 01-Dez-2022 às 13:35
+-- Versão do servidor: 10.4.22-MariaDB
+-- versão do PHP: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,109 +18,109 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `compara`
+-- Banco de dados: `compara`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorias`
+-- Estrutura da tabela `categorias`
 --
 
 CREATE TABLE `categorias` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `nome` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `favoritos`
+-- Estrutura da tabela `favoritos`
 --
 
 CREATE TABLE `favoritos` (
-  `id` int NOT NULL,
-  `id_usuario` int NOT NULL,
-  `id_postagem` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `id_postagem` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `lojas`
+-- Estrutura da tabela `lojas`
 --
 
 CREATE TABLE `lojas` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `nome` varchar(45) NOT NULL,
   `endereço` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `postagens`
+-- Estrutura da tabela `postagens`
 --
 
 CREATE TABLE `postagens` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `descricao` varchar(255) NOT NULL,
   `imagem` varchar(255) NOT NULL,
   `preco` varchar(45) NOT NULL,
-  `qtd_favoritos` int NOT NULL,
-  `id_usuario` int NOT NULL,
-  `id_loja` int NOT NULL,
-  `id_categoria` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `qtd_favoritos` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `id_loja` int(11) NOT NULL,
+  `id_categoria` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estrutura da tabela `usuarios`
 --
 
 CREATE TABLE `usuarios` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `nome` varchar(45) NOT NULL,
-  `sobrenome` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `sobrenome` varchar(60) NOT NULL,
   `email` varchar(256) NOT NULL,
   `senha` varchar(64) NOT NULL,
   `imagem` varchar(125) NOT NULL,
-  `qtd_publicacoes` int NOT NULL,
-  `qtd_seguidores` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `qtd_publicacoes` int(11) NOT NULL,
+  `qtd_seguidores` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `usuarios`
+-- Extraindo dados da tabela `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `sobrenome`, `email`, `senha`, `imagem`, `qtd_publicacoes`, `qtd_seguidores`) VALUES
 (1, 'Arthur', 'Both', 'arthurboth2@gmail.com', '123456789', '', 1456, 54154);
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `categorias`
+-- Índices para tabela `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `favoritos`
+-- Índices para tabela `favoritos`
 --
 ALTER TABLE `favoritos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `lojas`
+-- Índices para tabela `lojas`
 --
 ALTER TABLE `lojas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `postagens`
+-- Índices para tabela `postagens`
 --
 ALTER TABLE `postagens`
   ADD PRIMARY KEY (`id`),
@@ -129,56 +129,56 @@ ALTER TABLE `postagens`
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Indexes for table `usuarios`
+-- Índices para tabela `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `categorias`
+-- AUTO_INCREMENT de tabela `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `favoritos`
+-- AUTO_INCREMENT de tabela `favoritos`
 --
 ALTER TABLE `favoritos`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `lojas`
+-- AUTO_INCREMENT de tabela `lojas`
 --
 ALTER TABLE `lojas`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `postagens`
+-- AUTO_INCREMENT de tabela `postagens`
 --
 ALTER TABLE `postagens`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `usuarios`
+-- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Constraints for dumped tables
+-- Restrições para despejos de tabelas
 --
 
 --
--- Constraints for table `postagens`
+-- Limitadores para a tabela `postagens`
 --
 ALTER TABLE `postagens`
-  ADD CONSTRAINT `postagens_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `postagens_ibfk_2` FOREIGN KEY (`id_loja`) REFERENCES `lojas` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `postagens_ibfk_3` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `postagens_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`),
+  ADD CONSTRAINT `postagens_ibfk_2` FOREIGN KEY (`id_loja`) REFERENCES `lojas` (`id`),
+  ADD CONSTRAINT `postagens_ibfk_3` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
