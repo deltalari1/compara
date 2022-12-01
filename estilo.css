@@ -5,6 +5,12 @@ body {
 	font-family: 'Roboto', sans-serif !important;
 }
 
+.fundo-formulario {
+  background: rgb(225, 225, 225);
+  box-shadow: 0 0 10px 0 rgb(211, 208, 208), 0 2px 3px rgb(206, 202, 202);
+  border-radius: 0;
+}
+
 .fundo-customizado {
   background-color: #DD1014;
 }
@@ -23,17 +29,6 @@ body {
   margin-bottom: 20px;
 }
 
-.form-boxsad {
-  background: rgb(225, 225, 225);
-  box-shadow: 0 0 10px 0 rgb(211, 208, 208), 0 2px 3px rgb(206, 202, 202);
-  border-radius: 0;
-}
-
 .localizacao-oferta {
   font-size: 15px;
-}
-
-.bootstrap-select option:hover {
-  color: white !important;
-  background: #DD1014 !important;
 }
