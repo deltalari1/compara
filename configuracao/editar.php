@@ -12,7 +12,7 @@
 		$uploadfile = "";
 
 		if ($_FILES['imagem']['error'] != 4){ // Testa de uma imagem foi enviada no formulário
-			$uploaddir = 'imagens/';
+			$uploaddir = '/compara/imagens/';
 			$ext = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
 			$nome_arquivo = time() . "." . $ext;
 			$uploadfile = $uploaddir . $nome_arquivo;
