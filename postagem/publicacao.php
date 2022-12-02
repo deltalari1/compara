@@ -29,6 +29,7 @@
 											<a class='link-dark text-decoration-none fw-bold align-self-center' href='#'>Nome Sobrenome</a>
 										</div>
 										<div class='flex-row'>
+
 											<i class='bi bi-geo-alt-fill bi align-self-center fa-sm '></i>
 											<a class='link-dark text-decoration-none fst-italic' href='' style='font-size: 15px;'>$registro[lojas]</a>
 										</div>
@@ -53,7 +54,7 @@
 								<!--Imagem da oferta-->
 								<div class='d-flex flex-row align-items-center mb-4 mx-4'>
 									<div class='flex-column ratio ratio-1x1'>
-										<img src='postagem.jpg' alt='' style='object-fit: cover;'>
+										<img src='C:\xampps\htdocs\compara\imagens/' alt='' style='object-fit: cover;'>
 									</div>
 								</div>
 							

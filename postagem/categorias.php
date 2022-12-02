@@ -1,7 +1,7 @@
 <?php
 	require_once $_SERVER['DOCUMENT_ROOT']."/compara/conecta.php";
 
-	$sql = "SELECT nome FROM categorias ORDER BY nome ASC";
+	$sql = "SELECT id FROM categorias ORDER BY id ASC";
 	$registros = mysqli_query($conn, $sql);
 
 	if (mysqli_num_rows($registros) > 0){
