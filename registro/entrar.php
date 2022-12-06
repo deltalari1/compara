@@ -18,7 +18,8 @@
                 }
                 
                 $_SESSION["entrar"] = $id;
-                header("Location: /compara/perfil/perfil.php?usuario=" . $_SESSION["entrar"]);
+                
+                header("Location: /compara/perfil/perfil.php");
             } else {
                 echo("Usuário ou senha incorretos.");
             }
