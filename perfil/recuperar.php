@@ -1,6 +1,6 @@
 <?php
 	function drawPerfil($filter){
-		$conn = mysqli_connect("localhost", "root", "JGHga#567*HYt@", "compara");
+		$conn = mysqli_connect("localhost", "root", "", "compara");
 		
 		if ($filter == 0) {			
 			$id_usuario = $_GET["usuario"];
