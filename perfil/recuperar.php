@@ -1,9 +1,14 @@
-<?php
+<?php0
 	function drawPerfil($filter){
+		
 		$conn = mysqli_connect("localhost", "root", "", "compara");
 		
-		if ($filter == 0) {			
-			$id_usuario = $_GET["usuario"];
+		if ($filter == 0) {	
+			if (isset($_SESSION["entrar"]) && isset($_GET["usuario"]))
+				$id_usuario = $_GET["usuario"];
+			else {
+				$id_usuario = $_SESSION["entrar"];
+			}
 				
 			$sql = "SELECT nome, sobrenome, imagem, qtd_publicacoes, qtd_seguidores FROM usuarios WHERE id = $id_usuario"; // Mostrar postagens por ordem cronologica (id inverso)
 	
@@ -29,11 +34,14 @@
 							$registro[qtd_seguidores]
 						</div>
 						<div class='d-flex flex-column'>seguidores</div>
-					</div>
-					<div class='d-flex flex-row'>
-						<input class='btn btn-danger botao-vermelho fw-bold mt-3' id='seguir' type='button' value='Seguir'>
-					</div>
-					");
+					</div>");
+
+					if (isset($_GET["usuario"]) && $_GET["usuario"] != $_SESSION["entrar"]){
+						echo ("<div class='d-flex flex-row'>
+							<input class='btn btn-danger botao-vermelho fw-bold mt-3' id='seguir' type='button' value='Seguir'>
+						</div>");
+					}
+					
 				}
 			} else {
 				echo("<h3>Nenhuma publicação ainda.</h3>");
