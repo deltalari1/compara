@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 01-Dez-2022 às 13:35
--- Versão do servidor: 10.4.22-MariaDB
--- versão do PHP: 8.1.2
+-- Host: localhost
+-- Generation Time: Dec 06, 2022 at 01:51 AM
+-- Server version: 8.0.29
+-- PHP Version: 8.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,109 +18,142 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `compara`
+-- Database: `compara`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `categorias`
+-- Table structure for table `categorias`
 --
 
 CREATE TABLE `categorias` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int NOT NULL,
+  `nome` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `categorias`
+--
+
+INSERT INTO `categorias` (`id`, `nome`) VALUES
+(1, 'Alimentação'),
+(2, 'Moda'),
+(3, 'Beleza'),
+(4, 'Tecnologia'),
+(6, 'Entretenimento'),
+(8, 'Papelaria'),
+(9, 'Saúde'),
+(10, 'Casa');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `favoritos`
+-- Table structure for table `favoritos`
 --
 
 CREATE TABLE `favoritos` (
-  `id` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `id_postagem` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int NOT NULL,
+  `id_usuario` int NOT NULL,
+  `id_postagem` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `lojas`
+-- Table structure for table `lojas`
 --
 
 CREATE TABLE `lojas` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `nome` varchar(45) NOT NULL,
-  `endereço` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `endereco` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `lojas`
+--
+
+INSERT INTO `lojas` (`id`, `nome`, `endereco`) VALUES
+(2, 'Supermercado Bohlke', 'Rua alguma coisa');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `postagens`
+-- Table structure for table `postagens`
 --
 
 CREATE TABLE `postagens` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `descricao` varchar(255) NOT NULL,
   `imagem` varchar(255) NOT NULL,
   `preco` varchar(45) NOT NULL,
-  `qtd_favoritos` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `id_loja` int(11) NOT NULL,
-  `id_categoria` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `qtd_favoritos` int NOT NULL DEFAULT '0',
+  `id_usuario` int NOT NULL,
+  `id_loja` int NOT NULL,
+  `id_categoria` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `postagens`
+--
+
+INSERT INTO `postagens` (`id`, `descricao`, `imagem`, `preco`, `qtd_favoritos`, `id_usuario`, `id_loja`, `id_categoria`) VALUES
+(2, 'DQWDQWD', 'pao.jpg', '32112', 0, 1, 2, 1),
+(3, 'DQWDQWD', 'pao.jpg', '32112', 0, 1, 2, 1);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `nome` varchar(45) NOT NULL,
   `sobrenome` varchar(60) NOT NULL,
   `email` varchar(256) NOT NULL,
   `senha` varchar(64) NOT NULL,
-  `imagem` varchar(125) NOT NULL,
-  `qtd_publicacoes` int(11) NOT NULL,
-  `qtd_seguidores` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `imagem` varchar(125) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'avatar_padrao.png',
+  `qtd_publicacoes` int NOT NULL DEFAULT '0',
+  `qtd_seguidores` int NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Extraindo dados da tabela `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `sobrenome`, `email`, `senha`, `imagem`, `qtd_publicacoes`, `qtd_seguidores`) VALUES
-(1, 'Arthur', 'Both', 'arthurboth2@gmail.com', '123456789', '', 1456, 54154);
+(1, 'Arthur', 'Both', 'arthurboth2@gmail.com', '123456789', 'avatar_padrao.png', 1456, 54154),
+(3, 'Larissa', 'Farias', 'contaslari@gmail.com', 'abcdfghijkl', 'avatar_padrao.png', 0, 0),
+(4, 'Eva', 'Cristian Mendes Benites', 'evabenitesdefarias@hotmail.com', 'arvore', 'avatar_padrao.png', 0, 0);
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `categorias`
+-- Indexes for table `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `favoritos`
+-- Indexes for table `favoritos`
 --
 ALTER TABLE `favoritos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_usuario` (`id_usuario`,`id_postagem`),
+  ADD KEY `id_postagem` (`id_postagem`);
 
 --
--- Índices para tabela `lojas`
+-- Indexes for table `lojas`
 --
 ALTER TABLE `lojas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `postagens`
+-- Indexes for table `postagens`
 --
 ALTER TABLE `postagens`
   ADD PRIMARY KEY (`id`),
@@ -129,51 +162,58 @@ ALTER TABLE `postagens`
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Índices para tabela `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `categorias`
+-- AUTO_INCREMENT for table `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT de tabela `favoritos`
+-- AUTO_INCREMENT for table `favoritos`
 --
 ALTER TABLE `favoritos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `lojas`
+-- AUTO_INCREMENT for table `lojas`
 --
 ALTER TABLE `lojas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de tabela `postagens`
+-- AUTO_INCREMENT for table `postagens`
 --
 ALTER TABLE `postagens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de tabela `usuarios`
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Restrições para despejos de tabelas
+-- Constraints for dumped tables
 --
 
 --
--- Limitadores para a tabela `postagens`
+-- Constraints for table `favoritos`
+--
+ALTER TABLE `favoritos`
+  ADD CONSTRAINT `favoritos_ibfk_1` FOREIGN KEY (`id_postagem`) REFERENCES `postagens` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `favoritos_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `postagens`
 --
 ALTER TABLE `postagens`
   ADD CONSTRAINT `postagens_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id`),
