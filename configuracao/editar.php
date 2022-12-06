@@ -12,7 +12,7 @@
 		$uploadfile = "";
 
 		if ($_FILES['imagem']['error'] != 4){ // Testa se uma imagem foi enviada no formulário
-			$uploaddir = '/compara/imagens/';
+			$uploaddir = 'C:\xampp\htdocs\compara\imagens\perfil/';
 			$ext = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
 			$nome_arquivo = time() . "." . $ext;
 			$uploadfile = $uploaddir . $nome_arquivo;

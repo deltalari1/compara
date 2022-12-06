@@ -10,7 +10,6 @@
 		$stmt = mysqli_prepare($conn, $sql);
 
 		/* definindo os parametros (?) da consulta	(i - int, f - float, s - string)*/
-		mysqli_stmt_bind_param($stmt, "i", $id_usuario);
 
 		mysqli_execute($stmt);
 
