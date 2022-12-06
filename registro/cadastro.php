@@ -60,6 +60,7 @@
 			</div>
             <div class="text-end">
                 <input class="btn botao-vermelho btn-danger fw-bold" type="submit" value="Criar" name="criar">
+                <?php include_once "cadastrar.php";?>
             </div>
             <div>
                 <span>Já possui uma conta? </span><a href="login.php" class="fw-bold links link-danger">Faça login</a>
@@ -72,4 +73,3 @@
 </body>
 </html>
 
-<?php include_once $_SERVER['DOCUMENT_ROOT']."/compara/registro/cadastrar.php";?>

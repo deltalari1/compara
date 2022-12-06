@@ -1,5 +1,5 @@
 <?php
-	require_once $_SERVER['DOCUMENT_ROOT']."/compara/conecta.php";
+	include_once $_SERVER['DOCUMENT_ROOT']."/compara/conecta.php";
 
 	$id_usuario = $_GET["usuario"];
 	
@@ -11,7 +11,7 @@
 
 		$uploadfile = "";
 
-		if ($_FILES['imagem']['error'] != 4){ // Testa de uma imagem foi enviada no formulário
+		if ($_FILES['imagem']['error'] != 4){ // Testa se uma imagem foi enviada no formulário
 			$uploaddir = '/compara/imagens/';
 			$ext = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
 			$nome_arquivo = time() . "." . $ext;

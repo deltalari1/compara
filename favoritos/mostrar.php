@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Perfil</title>
+    <title>Linha do tempo</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/x-icon" href="/compara/imagens/favicon.png">
@@ -13,29 +13,21 @@
 
     <link rel="stylesheet" type="text/css" href="/compara/estilo.css">
 	<script src="/compara/postagem/curtir.js"></script>
-	<script src="/compara/postagem/seguir.js"></script>	
 </head>
-
 <body>
 	<?php include_once $_SERVER['DOCUMENT_ROOT']."/compara/navbar/navbartop.php";?>
 
-	<div class="d-flex flex-wrap justify-content-center mt-4">
-		<div class="d-flex flex-row">
-			<div class="d-flex flex-column align-items-center mx-5">
-				<?php include_once "recuperar.php";?>
-			</div>
-		</div>
-
-		<div class="d-flex flex-row flex-wrap justify-content-center flex-grow-1 pt-md-3">
-			<div class="d-flex flex-column">
-				<?php include $_SERVER['DOCUMENT_ROOT']."/compara/postagem/publicacao.php";?>
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col">
+				<?php include "favoritos.php";?>
 			</div>
 		</div>
 	</div>
-
+	
 	<?php include_once $_SERVER['DOCUMENT_ROOT']."/compara/navbar/navbarbottom.php";?>
 	
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
 </body>
 </html>

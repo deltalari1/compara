@@ -22,7 +22,7 @@
 	<div class="d-flex flex-wrap justify-content-center mt-4">
 		<div class="d-flex flex-row">
 			<div class="d-flex flex-column align-items-center mx-5">
-				<?php include_once "recuperar.php";?>
+				<?php include_once $_SERVER['DOCUMENT_ROOT']."/compara/categorias/alimentacao.php";?>
 			</div>
 		</div>
 

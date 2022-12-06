@@ -4,7 +4,7 @@
 	$id_usuario = $_GET["usuario"];
 
 	if ($conn){
-		$sql = "SELECT nome, sobrenome, email, senha FROM usuarios WHERE id = ?";
+		$sql = "SELECT nome, sobrenome, email, senha FROM usuarios WHERE id = $id_usuario";
 
 		// stmt = abreviacao de statement
 		$stmt = mysqli_prepare($conn, $sql);

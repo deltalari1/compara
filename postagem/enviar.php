@@ -7,25 +7,29 @@
 		$descricao = $_POST["descricao"];
 		$preco = $_POST["preco"];
 		$uploadfile = "";
-		
-		if ($_FILES['imagem']['error'] != 4){
-			$uploaddir = '/compara/imagens/';
-			$ext = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
-			$nome_arquivo = time() . "." . $ext;
-			$uploadfile = $uploaddir . $nome_arquivo;
 
-			if (move_uploaded_file($_FILES['imagem']['tmp_name'], $uploadfile)){
-				$sql = "INSERT INTO postagem (categoria, loja, descricao, preco, imagem) VALUES ('$categoria', '$loja', '$descricao', '$preco', '$nome_arquivo')";
-			} else {
-				echo("Não foi possível enviar a imagem.");
-			}
-				
-			if (mysqli_query($conn, $sql)){
-				
-			}
-			mysqli_close($conn);
+		if (empty($categoria) || empty($loja) || empty($descricao) || empty($preco)){
+			echo("Por favor, preencha todas os campos antes de continuar!");
 		} else {
-			echo("Por favor, adicione uma foto ao seu produto.");
+			if ($_FILES['imagem']['error'] != 4){
+				$uploaddir = 'compara/imagens/publicacao/';
+				$ext = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
+				$nome_arquivo = time() . "." . $ext;
+				$uploadfile = $uploaddir . $nome_arquivo;
+	
+				if (move_uploaded_file($_FILES['imagem']['tmp_name'], $uploadfile)){
+					$sql = "INSERT INTO postagens (descricao, preco, imagem, id_loja, id_categorias) VALUES ('$descricao', '$preco', '$up', '$loja', '$categoria')";
+	
+					if (mysqli_query($conn, $sql)){
+						echo("Publicação feita com sucesso!");
+					}
+				} else {
+					echo("Não foi possível enviar a imagem.");
+				}
+				mysqli_close($conn);
+			} else {
+				echo("Por favor, adicione uma foto do seu produto.");
+			}
 		}
 	}
 ?>

@@ -2,10 +2,10 @@
 	function drawPost($filter){
 		$conn = mysqli_connect("localhost", "root", "JGHga#567*HYt@", "compara");
 		
-		if ($filter == 0) {			
+		if ($filter == 2) {			
 			$id_usuario = $_GET["usuario"];
 
-			$sql = "SELECT postagens.id, postagens.descricao, postagens.imagem AS imagemPostagem, postagens.preco, lojas.nome AS nomeLoja, lojas.endereco, usuarios.nome AS nomeUsuario, usuarios.sobrenome, usuarios.imagem AS imagemUsuario, categorias.nome AS nomeCategoria FROM postagens INNER JOIN lojas ON lojas.id = postagens.id_loja INNER JOIN usuarios ON usuarios.id = postagens.id_usuario INNER JOIN categorias ON categorias.id = postagens.id_categoria WHERE id_usuario = $id_usuario ORDER BY postagens.id DESC"; // Mostrar postagens por ordem cronologica (id inverso)
+			$sql = "SELECT usuarios.id AS idUsuario, postagens.id AS idPostagem FROM favoritos INNER JOIN usuarios ON id_usuario INNER JOIN postagens ON id_postagem WHERE favoritos.id_usuario = $id_usuario ORDER BY postagens.id DESC"; // Mostrar postagens por ordem cronologica (id inverso)
 			$registros = mysqli_query($conn, $sql);
 
 
@@ -76,9 +76,9 @@
 							</div>");
 				}
 			} else {
-				echo("<h3>Nenhuma publicação ainda.</h3>");
+				echo("<h3>Nenhuma publicação curtida ainda.</h3>");
 			}
 		}
 	}
-	drawPost(0);
+	drawPost(2);
 ?>

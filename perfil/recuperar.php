@@ -1,6 +1,6 @@
 <?php
 	function drawPerfil($filter){
-		$conn = mysqli_connect("localhost", "root", "", "compara");
+		$conn = mysqli_connect("localhost", "root", "JGHga#567*HYt@", "compara");
 		
 		if ($filter == 0) {			
 			$id_usuario = $_GET["usuario"];
@@ -14,7 +14,7 @@
 				if ($registro = mysqli_fetch_array($registros)){
 					echo ("
 					<div class='d-flex flex-row'>
-						<img src='/compara/imagens/$registro[imagem]' class='rounded-circle' alt='' style='width: 200px;'>
+						<img src='/compara/imagens/perfil/$registro[imagem]' class='rounded-circle' alt='' style='width: 200px;'>
 					</div>
 					<div class='d-flex flex-row mt-3'>
 						<div class='d-flex flex-column fs-3 fw-bold'>$registro[nome] $registro[sobrenome]</div>
@@ -35,10 +35,10 @@
 					</div>
 					");
 				}
-			}
 			} else {
 				echo("<h3>Nenhuma publicação ainda.</h3>");
 			}
 		}
+	}
 	drawPerfil(0);
 ?>

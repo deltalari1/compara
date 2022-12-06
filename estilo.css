@@ -32,3 +32,8 @@ body {
 .localizacao-oferta {
   font-size: 15px;
 }
+
+#upload {
+  display: none;
+  visibility: none;
+}

@@ -3,13 +3,10 @@
 		$conn = mysqli_connect("localhost", "root", "JGHga#567*HYt@", "compara");
 		
 		if ($filter == 0) {			
-			$id_usuario = $_GET["usuario"];
+			$sql = "SELECT postagens.id, postagens.descricao, postagens.imagem AS imagemPostagem, postagens.preco, lojas.nome AS nomeLoja, lojas.endereco, usuarios.nome AS nomeUsuario, usuarios.sobrenome, usuarios.imagem AS imagemUsuario, categorias.nome AS nomeCategoria FROM postagens INNER JOIN lojas ON lojas.id = postagens.id_loja INNER JOIN usuarios ON usuarios.id = postagens.id_usuario INNER JOIN categorias ON categorias.id = postagens.id_categoria WHERE id_categoria = 1 ORDER BY postagens.id DESC";
 
-			$sql = "SELECT postagens.id, postagens.descricao, postagens.imagem AS imagemPostagem, postagens.preco, lojas.nome AS nomeLoja, lojas.endereco, usuarios.nome AS nomeUsuario, usuarios.sobrenome, usuarios.imagem AS imagemUsuario, categorias.nome AS nomeCategoria FROM postagens INNER JOIN lojas ON lojas.id = postagens.id_loja INNER JOIN usuarios ON usuarios.id = postagens.id_usuario INNER JOIN categorias ON categorias.id = postagens.id_categoria WHERE id_usuario = $id_usuario ORDER BY postagens.id DESC"; // Mostrar postagens por ordem cronologica (id inverso)
 			$registros = mysqli_query($conn, $sql);
 
-
-			// Com a tabela acessada, devemos exibir uma postagem, diminuir o numero de id em 1, exibir a postagem e repetir, por meio de um while
 			if (mysqli_num_rows($registros) > 0){
 				while ($registro = mysqli_fetch_array($registros)){
 					echo ("

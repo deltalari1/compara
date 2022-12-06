@@ -1,10 +1,3 @@
-<?php
-	session_start();
-	if (isset($_SESSION["usuario"])){
-		header("location: /compara/perfil/perfil.php?usuario=?");
-	}
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="/compara/estilo.css">
 </head>
 <body>
-<div class="container" style="max-width: 500px; margin-top: 5rem;">
+    <div class="container" style="max-width: 500px; margin-top: 5rem;">
         <div class="row">
             <img src="logo_vermelho.png" class="logo-vermelho">
         </div>
@@ -46,6 +39,7 @@
 			</div>
             <div class="text-end">
                 <input class="btn botao-vermelho btn-danger fw-bold" type="submit" value="Entrar" name="entrar">
+                <?php include_once "entrar.php";?>
             </div>
             <div>
                 <span>Ainda não tem uma conta? </span><a href="cadastro.php" class="fw-bold link-danger">Registre-se</a>
@@ -57,5 +51,3 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
 </body>
 </html>
-
-<?php include_once $_SERVER['DOCUMENT_ROOT']."/compara/registro/entrar.php";?>
