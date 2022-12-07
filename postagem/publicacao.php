@@ -1,6 +1,6 @@
 <?php
 	function drawPost($filter){
-		$conn = mysqli_connect("localhost", "root", "JGHga#567*HYt@", "compara");
+		$conn = mysqli_connect("localhost", "root", "", "compara");
 		
 		if ($filter == "perfil") {
 			$id_usuario = $_GET["usuario"];
@@ -43,7 +43,7 @@
 			while ($registro = mysqli_fetch_array($registros)){
 				echo ("
 					<div class='container p-3 border-bottom' style='max-width: 700px'>
-						<!--Foto de perfil, nome e sobrenome, data que foi publicada a oferta, endereço do local onde está a oferta, botão de editar a publicação-->
+						<!--Foto de perfil, nome e sobrenome, data que foi publicada a oferta, endereço do local onde está a oferta, botão de excluir a publicação-->
 						<div class='d-flex flex-row align-items-center'>
 							<div class='flex-column'>
 								<div class='flex-row p-2'>
