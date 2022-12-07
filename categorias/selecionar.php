@@ -1,12 +1,13 @@
 <?php
 	require_once $_SERVER['DOCUMENT_ROOT']."/compara/conecta.php";
 
-	$sql = "SELECT * FROM categorias ORDER BY nome ASC";
-	$registros = mysqli_query($conn, $sql);
+	$sqlcat = "SELECT * FROM categorias ORDER BY nome ASC";
+	$registroscat = mysqli_query($conn, $sqlcat);
 
-	if (mysqli_num_rows($registros) > 0){
-		while ($registro = mysqli_fetch_array($registros)){
-			echo("<li><a class='dropdown-item' href='/compara/categorias/perfil.php'>$registro[nome]</a></li>");
+	if (mysqli_num_rows($registroscat) > 0){
+		while ($registrocat = mysqli_fetch_array($registroscat)){
+			$refcat = "/compara/categorias/categorias.php?categoria=".$registrocat["id"];
+			echo("<li><a class='dropdown-item' href=$refcat>$registrocat[nome]</a></li>");
 		}
 	}
 ?>

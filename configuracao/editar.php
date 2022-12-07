@@ -12,7 +12,7 @@
 		$uploadfile = "";
 
 		if ($_FILES['imagem']['error'] != 4){ // Testa se uma imagem foi enviada no formulário
-			$uploaddir = 'C:\xampp\htdocs\compara\imagens\perfil/';
+			$uploaddir = 'C:\Apache24\htdocs\compara\imagens\perfil/';
 			$ext = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
 			$nome_arquivo = time() . "." . $ext;
 			$uploadfile = $uploaddir . $nome_arquivo;
@@ -27,11 +27,7 @@
 		}
 
 		if (mysqli_query($conn, $sql)){
-			echo ("
-				<script>
-					location.href = 'configuracao.php?usuario=1';
-				</script>
-			");
+			
 		} else {
 			echo ("Erro: $sql <br>" . mysqli_error($conn) );
 		}

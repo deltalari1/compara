@@ -1,3 +1,5 @@
+<?php include_once "../protege.php";?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,27 +20,27 @@
 	<div class="container mt-5">
 		<form class="row" method="POST" enctype="multipart/form-data">
 			<div class="col-6 mb-3">
-				<label class="form-label">Nome</label>
+				<label class="form-label fw-bold">Nome</label>
 				<input type="text" name="nome" class="form-control" value="<?php echo($nome);?>" required>
 			</div>
 
 			<div class="col-6 mb-3">
-				<label class="form-label">Sobrenome</label>
+				<label class="form-label fw-bold">Sobrenome</label>
 				<input type="text" name="sobrenome" class="form-control" value="<?php echo($sobrenome);?>" required>
 			</div>
 
 			<div class="col-6 mb-3">
-				<label class="form-label">Email</label>
+				<label class="form-label fw-bold">Email</label>
 				<input type="email" name="email" class="form-control" placeholder="Email" value="<?php echo($email);?>" required>
 			</div>
 
 			<div class="col-6 mb-3">
-				<label class="form-label">Senha</label>
+				<label class="form-label fw-bold">Senha</label>
 				<input type="password" name="senha" class="form-control" placeholder="Senha" value="<?php echo($senha);?>" required>
 			</div>
 
 			<div class="mb-3">
-				<label class="form-label">Foto de perfil</label>
+				<label class="form-label fw-bold">Foto de perfil</label>
 				<input type="file" name="imagem" class="form-control">
 			</div>
 
@@ -47,7 +49,7 @@
 			</div>
 
 			<div class="mt-3">
-				<a href="/compara/perfil/perfil.php?usuario=1" class="fw-bold links link-danger">< VOLTAR</a>
+				<?php echo("<a href='/compara/perfil/perfil.php?usuario=$_SESSION[entrar]' class='fw-bold links link-danger'>< VOLTAR</a>") ?>
 			</div>
 		</form>
 	</div>

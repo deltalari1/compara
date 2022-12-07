@@ -1,10 +1,3 @@
-<?php
-    session_start();
-    if (isset($_SESSION["usuario"])){
-        header("location: /compara/perfil/perfil.php?usuario=?");
-    }
-?>
-
 <!DOCTYPE html>
 <html>
 <head>

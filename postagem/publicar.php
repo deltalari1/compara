@@ -2,7 +2,7 @@
 	<div class="modal-dialog">
 		<div class="modal-content rounded-0 border-0">
 			<div class="modal-body">
-				<form method="POST" enctype="multipart/form-data">
+				<form method="POST" action="../postagem/enviar.php" enctype="multipart/form-data">
 					<div class="container-fluid">
 						<div class="row mb-3">
 							<div class="col-6">
@@ -14,7 +14,7 @@
 							<div class="col-6">
 								<select class="form-select fw-bold rounded-0" name="loja" required>
 									<option>Selecionar loja</option>
-										<?php include_once "lojas.php";?>
+									<?php include_once "lojas.php";?>
 								</select>
 							</div>
 						</div>
@@ -42,7 +42,6 @@
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary fw-bold rounded-0" data-bs-dismiss="modal">Cancelar</button>
 				<input class="btn botao-vermelho btn-danger fw-bold" type="submit" name="enviar" value="Publicar">
-				<div><?php require_once "enviar.php";?></div>
 			</div>
 			</form>
 		</div>

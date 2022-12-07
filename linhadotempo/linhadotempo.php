@@ -1,3 +1,5 @@
+<?php include_once "../protege.php";?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +22,8 @@
 	<div class="container mt-5">
 		<div class="row">
 			<div class="col">
-				<?php include $_SERVER['DOCUMENT_ROOT']."/compara/postagem/publicacao.php";?>
+				<?php include $_SERVER['DOCUMENT_ROOT']."/compara/postagem/publicacao.php";
+				drawPost("moots")?>
 			</div>
 		</div>
 	</div>

@@ -12,7 +12,7 @@
 			<div class="me-auto">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
-						<a class="nav-link fw-bold d-none d-md-block" aria-current="page" href="/compara/linhadotempo/linhadotempo.php?usuario=1">Início</a>
+						<?php echo("<a class='nav-link fw-bold' aria-current='page' href='/compara/linhadotempo/linhadotempo.php?usuario=$_SESSION[entrar]'>Início</a>")?>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorias</a>
@@ -26,15 +26,6 @@
 			<div class="me-md-3">
 				<button type="button" class="btn btn-secondary rounded-0 d-none d-md-block text-nowrap fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Adicionar oferta</button>
 			</div>
-
-			<div>
-				<form class="d-flex" role="search">
-					<input class="form-control border-0 rounded-0" type="search" placeholder="Pesquisar oferta..." aria-label="Pesquisar oferta">
-					<button class="btn btn-light border-0 rounded-0" type="submit"">
-						<span class="fas fa-search"></span>
-					</button>
-				</form>
-			</div>
 			
 			<div class="ms-md-2">
 				<ul class="navbar-nav d-none d-md-block">
@@ -43,9 +34,10 @@
 							<i class="fas fa-user-alt fa-1x"></i>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-end rounded-0">
-							<li><a class="dropdown-item" href="/compara/perfil/perfil.php?usuario=1">Perfil</a></li>
-							<li><a class="dropdown-item" href="/compara/favoritos/mostrar.php?usuario=1">Favoritos</a></li>
-							<li><a class="dropdown-item" href="/compara/configuracao/configuracao.php?usuario=1">Configurações</a></li>
+							<?php
+							echo("<li><a class='dropdown-item' href='/compara/perfil/perfil.php?usuario=$_SESSION[entrar]'>Perfil</a></li>");
+							echo("<li><a class='dropdown-item' href='/compara/configuracao/configuracao.php?usuario=$_SESSION[entrar]'>Configurações</a></li>");
+							?>
 							<li><a class="dropdown-item text-secondary" href="/compara/registro/sair.php">Sair</a></li>
 						</ul>
 					</li>
@@ -55,4 +47,4 @@
 	</div>
 </nav>
 
-<?php include_once $_SERVER['DOCUMENT_ROOT']."/compara/postagem/publicar.php";?>
+<?php include_once "../postagem/publicar.php";?>
