@@ -29,8 +29,8 @@
 						</div>
 						<div class='d-flex flex-column'>seguidores</div>
 					</div>
-					<div class='d-flex flex-row'>
-						<div class='d-flex flex-column fw-bold me-1'>
+					<div class='d-flex flex-row d-block d-md-none'>
+						<div class='d-flex flex-column fw-bold text-secondary me-1'>
 							<a href=../configuracoes/configuracoes.php?usuario=$_SESSION[entrar]'>Configurações</a> 
 						</div>
 						<div class='d-flex flex-column fst-italic fw-bold me-1'> 
@@ -44,8 +44,6 @@
 						<div class='d-flex flex-column'>seguidores</div>
 					</div>
 					");
-
-					
 
 					if (isset($_GET["usuario"]) && $_GET["usuario"] != $_SESSION["entrar"]){
 						$sql = "SELECT `usuario_segue`, `usuario_seguido` FROM `segue` WHERE `usuario_segue` = $_SESSION[entrar] AND `usuario_seguido` = $_GET[usuario];";
