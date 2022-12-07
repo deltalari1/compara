@@ -28,7 +28,24 @@
 							$registro[qtd_seguidores]
 						</div>
 						<div class='d-flex flex-column'>seguidores</div>
-					</div>");
+					</div>
+					<div class='d-flex flex-row'>
+						<div class='d-flex flex-column fw-bold me-1'>
+							<a href=../configuracoes/configuracoes.php?usuario=$_SESSION[entrar]'>Configurações</a> 
+						</div>
+						<div class='d-flex flex-column fst-italic fw-bold me-1'> 
+							<a href=../registro/sair.php?usuario=$_SESSION[entrar]'>Sair</a> 
+						</div>
+						<div class='d-flex flex-column'>publicações</div>
+						<div class='d-flex flex-column mx-3'>|</div>
+						<div class='d-flex flex-column fw-bold me-1'>
+							$registro[qtd_seguidores]
+						</div>
+						<div class='d-flex flex-column'>seguidores</div>
+					</div>
+					");
+
+					
 
 					if (isset($_GET["usuario"]) && $_GET["usuario"] != $_SESSION["entrar"]){
 						$sql = "SELECT `usuario_segue`, `usuario_seguido` FROM `segue` WHERE `usuario_segue` = $_SESSION[entrar] AND `usuario_seguido` = $_GET[usuario];";
@@ -61,7 +78,7 @@
 								$sql2 = "UPDATE `usuarios` SET `qtd_seguidores`= qtd_seguidores - 1 WHERE id = $_GET[usuario];";
 								mysqli_query($conn, $sql);
 								mysqli_query($conn, $sql2);
-								header("Location: /compara/perfil/perfil.php?usuario=" . $_GET["usuario"]);
+								header("Location: ../perfil/perfil.php?usuario=" . $_GET["usuario"]);
 							}
 						};
 					};
